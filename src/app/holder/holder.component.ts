@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
   <h2>With content projection</h2>
-  <div *ngIf="show">
+  <ng-container *ngIf="show">
     <ng-content></ng-content>
-  </div>
+  </ng-container>
   `,
   styles: [
   ]

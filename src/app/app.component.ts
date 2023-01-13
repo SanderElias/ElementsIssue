@@ -13,6 +13,11 @@ import { MyElementComponent } from './my-element/my-element.component';
 
   <h2>Without content projection</h2>
 
+  <svg use="#k_plus"></svg>
+  <svg>
+      <use attr.xlink:href="#k_plus"></use>
+    </svg>
+
   <ng-container *ngIf="toggle">
     <app-my-element icon="star"></app-my-element>
     <my-element icon="star"></my-element>
