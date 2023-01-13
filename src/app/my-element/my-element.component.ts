@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
     <use attr.xlink:href="#{{icon}}"></use>
   </svg>
   <span>Showing: {{icon}}</span>
+  <button (click)="dump()">dump icon to console</button>
   `
   ,
   styles: [`
@@ -27,5 +28,12 @@ import { CommonModule } from '@angular/common';
 export class MyElementComponent {
   @Input() icon= "none";
 
+  #elm = inject(ElementRef).nativeElement;
+
+
+  
+  dump() {
+    console.log(this.#elm.getAttribute('icon'), this.#elm.parentNode)
+  }
 }
 
