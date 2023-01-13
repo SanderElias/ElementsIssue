@@ -13,10 +13,6 @@ import { MyElementComponent } from './my-element/my-element.component';
 
   <h2>Without content projection</h2>
 
-  <svg use="#k_plus"></svg>
-  <svg>
-      <use attr.xlink:href="#k_plus"></use>
-    </svg>
 
   <ng-container *ngIf="toggle">
     <app-my-element icon="star"></app-my-element>
@@ -24,9 +20,13 @@ import { MyElementComponent } from './my-element/my-element.component';
   </ng-container>
   
   <app-holder [show]="toggle">
+    <ng-container [ngTemplateOutlet]="stuff"]></ng-container>
+  </app-holder>
+
+  <ng-template #stuff>
     <app-my-element icon="question-mark"></app-my-element>
     <my-element icon="question-mark"></my-element>
-  </app-holder>
+  </ng-template>
 
   `,
   styles: []

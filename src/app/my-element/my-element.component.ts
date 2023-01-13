@@ -5,13 +5,21 @@ import { CommonModule } from '@angular/common';
   selector: 'app-my-element',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>Showing <span>{{icon}}</span> </p>
-  `,
+  template: `<svg>
+    <use attr.xlink:href="#{{icon}}"></use>
+  </svg>
+  <span>Showing: {{icon}}</span>
+  `
+  ,
   styles: [`
+  :host {
+    display: flex;
+    gap: .5rem;
+  }
   span {
     font-weight: bold;
     background-color: yellow;
-    
+
     
   }
   `]
